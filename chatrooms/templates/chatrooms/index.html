@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Chat Rooms</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    {% include 'chatrooms/nav.html' %}
+
+    <div class="container">
+        <div class="row justify-content-center mt-5 px-3">
+            <div class="col-lg-4">
+                <div class="border border-info mt-3 mb-3 my_form rounded px-3">
+                    <h4 class="text-center py-4">Enter new room name:</h4>
+                    <form c action="#">
+                        <div class="mb-3 px-3">
+                            <div class="row px-3">
+                                <input id="room-name-input" class="form-control mb-3 " type="text">
+                                <input id="room-name-submit" class="btn btn-success w-100" type="button" value="Enter">
+                            </div>
+                        </div>
+                    </form>
+                    <h4 class="text-center text-muted pb-3">Below are the chatrooms</h4>
+                    {% for room in theRoom %}
+                        {{room.name}}
+                    {% endfor %}
+                    <div id="pnlRenderedButton" class="row px-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <script src="{% static 'index.js' %}"></script>
+</body>
+
+</html>

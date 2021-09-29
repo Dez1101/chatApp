@@ -1,0 +1,64 @@
+
+
+.message{
+    
+    color: #fff;
+    max-width: 65%;
+    padding: 6px;
+    border-radius: 2em;
+    margin: 15px 0px;
+}
+
+.sender{
+    background-color: blueviolet;
+    margin-left: auto;
+}
+
+.receiver{
+    background-color: yellowgreen;
+
+}
+
+.leaveButton{
+    background-color: rgb(59, 68, 68);
+    border-color: turquoise;
+    color: turquoise;
+    border: 0.16em solid turquoise;
+    border-radius: 2em;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 200px;
+    margin: 20px;
+}
+
+.leaveButton:hover{
+    background-color: red;
+    color: #fff;
+    transition: 00.3s;
+}
+
+.nav{
+    width: 95vw;
+    text-align: right;
+}
+
+.sign-out{
+    text-decoration: none;
+    color: rgb(117, 113, 113);
+    transition: 0.3s;
+}
+
+.sign-out:hover{
+    cursor: pointer;
+    color: #1d5a97;
+    transition: 0.3s;
+}
+
+#emptyText{
+    color: #000;
+}
