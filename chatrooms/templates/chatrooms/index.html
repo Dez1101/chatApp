@@ -32,9 +32,16 @@
                         </div>
                     </form>
                     <h4 class="text-center text-muted pb-3">Below are the chatrooms</h4>
-                    {% for room in theRoom %}
-                        {{room.name}}
-                    {% endfor %}
+                        <!-- =================== -->
+                        <div  style="overflow-y:scroll; height:250px;">
+                            {% for roomName in roomNames.all %}
+                            <div class="d-flex justify-content-center">
+                                <button class="btn  btn-warning mb-4 w-50 myRoom" id={{roomName.name}}>{{roomName.name}}</button>
+                            </div>   
+                            {% endfor %}
+                        </div>
+                       
+                        <!-- =========================== -->
                     <div id="pnlRenderedButton" class="row px-3">
                     </div>
                 </div>

@@ -3,17 +3,13 @@ from django.shortcuts import render
 from django.views import View
 from . models import ChatRoom, Chat
 from django.contrib.auth.mixins import LoginRequiredMixin
-# Create your views here.
 
 
 class   Index(LoginRequiredMixin, View):
     def get(self, request):
-        roomName = Chat.objects.all()
-        chatr ={
-            'theRoom': roomName
-        }
+        roomNames = ChatRoom.objects
         
-        return  render(request, 'chatrooms/index.html', chatr)
+        return  render(request, 'chatrooms/index.html', {'roomNames' : roomNames})
 
 
 class Room(LoginRequiredMixin, View):
