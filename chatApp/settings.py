@@ -39,6 +39,14 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+EMAIL_FROM = 'dkay1101@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dkay1101@gmail.com'
+EMAIL_HOST_PASSWORD = '20022006'
+EMAIL_USE_TLS = True
+
 INSTALLED_APPS = [
 
     'allauth',
@@ -165,13 +173,11 @@ STATICFILES_DIRS = [
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_REDIRECT_URL = 'index'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'index'
+# ACCOUNT_LOGOUT_REDIRECT_URL = 'index'
 ACCOUNT_EMAIL_REQUIRED = True
 # # ===============
-# CCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = None
-# ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
-# ACCOUNT_EMAIL_CONFIRMATION_HMAC = True
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+# ======================
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
