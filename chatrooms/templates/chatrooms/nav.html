@@ -1,8 +1,9 @@
 <nav class="navbar navbar-light bg-light px-5">
     <div class="container-fluid">
       <a class="navbar-brand">Hello, {{request.user}}</a>
-      <form class="d-flex">
-        <a href="{% url 'account_logout' %}" class="btn btn-warning">Sign Out</a>
+      <form action="{% url 'dezzi:logout' %}" method="POST" class="d-flex">
+        {% csrf_token %}
+        <input type="submit" value="Logout" class="btn btn-warning">
       </form>
     </div>
   </nav>

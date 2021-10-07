@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# from chatApp import dezzi
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('chat/', include('chatrooms.urls')),
-    path('accounts/', include('allauth.urls')),
+    path('accounts/', include('dezzi.urls')),
 ]

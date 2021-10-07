@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container h-100">
+  <div class="row d-flex align-items-center">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+
+          <div class="card mt-5">
+            <div class="card-body"
+              style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;">
+              <h5 class="card-title text-muted">Register to have access to our chatrooms</h5>
+
+              {% include 'partials\_flash_messgaes.html' %}
+
+              <form action="{% url 'dezzi:signup' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group mb-2">
+                  <input type="emil" name="email" class="form-control form-control-sm" value="{{data.email}}"
+                    placeholder="email">
+                </div>
+                <div class="form-group mb-2">
+                  <input type="text" name="name" class="form-control form-control-sm" value="{{data.name}}"
+                    placeholder="Full Name">
+                </div>
+                <div class="form-group mb-2">
+                  <input type="text" name="username" class="form-control form-control-sm" value="{{data.username}}"
+                    placeholder="username">
+                </div>
+                <div class="form-group mb-2">
+                  <input type="password" name="password" class="form-control form-control-sm" value=""
+                    placeholder="password">
+                </div>
+                <div class="form-group mb-2">
+                  <input type="password" name="password2" class="form-control form-control-sm" value=""
+                    placeholder="Confirm password">
+                </div>
+                <input type="submit" value="Register" class="btn btn-sm w-100 btn-primary" />
+              </form>
+
+              <p class="mt-3 text-center">already signed up?, <a href="{% url 'dezzi:login' %}">Login</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+{% endblock %}

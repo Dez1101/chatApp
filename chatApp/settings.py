@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib import messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,33 +27,20 @@ SECRET_KEY = 'django-insecure-^^kcvj#e-%8^5!9s+*r)ce5+h6+z=s=y#^f%0w*+65(zrdn9mq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+
+
 
 
 # Application definition
 
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
 
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
 
-EMAIL_FROM = 'dkay1101@gmail.com'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'dkay1101@gmail.com'
-EMAIL_HOST_PASSWORD = '20022006'
-EMAIL_USE_TLS = True
+
+
 
 INSTALLED_APPS = [
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,12 +52,7 @@ INSTALLED_APPS = [
     'channels',
     'chatrooms',
     'crispy_forms',
-    # 'authentication',
-   
-    # 'allauth',
-    # 'django.contrib.auth',
-    # 'django.contrib.messages',
-    # 'django.contrib.sites',
+    'dezzi',
 
     
 ]
@@ -170,17 +153,27 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+MESSAGE_TAGS={
+    messages.error: 'danger'
+}
+
+EMAIL_HOST=os.environ.get('EMAIL_HOST')
+EMAIL_BACKEND=os.environ.get('EMAIL_BACKEND')
+EMAIL_HOST_USER=os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS=os.environ.get('EMAIL_USE_TLS')
+EMAIL_PORT=os.environ.get('EMAIL_PORT')
+
 
 LOGIN_REDIRECT_URL = 'index'
-# ACCOUNT_LOGOUT_REDIRECT_URL = 'index'
-ACCOUNT_EMAIL_REQUIRED = True
-# # ===============
 
-# ======================
-# Default primary key field type
+LOGIN_URL = 'dezzi:login'
+LOGOUT_URL = 'dezzi:logout'
+LOGOUT_REDIRECCT_URL = 'dezzi:login' 
+
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+

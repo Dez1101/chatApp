@@ -21,7 +21,7 @@
         <div class="row justify-content-center d-flex mt-5 px-3">
             <div class="row">
                 <div class="col-4 pull-right">
-                    <a class="btn btn-danger w-10" href="{% url 'index' %}">Leave Room</a>
+                    <a class="btn btn-danger w-10" href="{% url 'chat:index' %}">Leave Room</a>
                 </div>
                 
             </div>
@@ -47,20 +47,6 @@
                                             </div>
                                         {% endif %}
                                     {% endfor %}
-
-                                    <!-- ============== -->
-                                    <!-- {% for chat in chats.all %}
-                                    {% if chat.user.id == request.user.id %}
-                                        <div class="message sender">
-                                            {{ chat.content }}
-                                        </div>
-                                    {% else %}
-                                        <div class="message receiver">
-                                            {{ chat.content }}
-                                        </div>
-                                    {% endif %}
-                                {% endfor %} -->
-                                    <!-- ================ -->
                                 </div>
                                 <input id="chat-message-input" class="mb-3" type="text" size="100">
                                 <input id="chat-message-submit" class="btn btn-success w-100" type="button" value="Send">
